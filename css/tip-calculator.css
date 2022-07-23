@@ -1,9 +1,45 @@
+:root {
+    --very-dark-cyan: hsl(183, 100%, 15%);
+    --dark-grayish-cyan: hsl(186, 14%, 43%);
+    --grayish-cyan: hsl(184, 14%, 56%);
+    --light-grayish-cyan: hsl(185, 41%, 84%);
+    --very-light-grayish-cyan: hsl(189, 41%, 97%);
+    --white: hsl(0, 0%, 100%);
+}
+
+
+body {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+
+.main-container {
+    min-width: 100%;
+    min-height: 100vh;
+    background-color: var(--very-light-grayish-cyan);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 
 
 
 /*  */
 
-.attribution { font-size: 11px; text-align: center; }
-.attribution a { color: hsl(228, 45%, 44%); }
+.attribution {
+    font-size: 11px;
+    text-align: center;
+
+    position: fixed;
+    bottom: 0;
+    height: 1.5rem;
+    width: 100%;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
 
 /*  */
