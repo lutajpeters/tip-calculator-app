@@ -34,7 +34,7 @@
           </header>
           <div class="bill-input">
             <img src="/images/icon-dollar.svg" alt="dollar sign" />
-            <input type="number" id="billAmount" name="billAmount" min="0" max="1000000" />
+            <input type="number" id="billAmount" name="billAmount" min="0" max="1000000" placeholder="0.0" />
           </div>
         </section>
         <section class="bill-tip-options">
@@ -56,18 +56,24 @@
           </header>
           <div class="party-size-input">
             <img src="/images/icon-person.svg" alt="people" />
-            <input type="number" id="partySize" name="partySize" min="0" max="1000000" />
+            <input type="number" id="partySize" name="partySize" min="0" max="1000000" placeholder="0.0" />
           </div>
         </section>
       </section>
       <section class="card-tip">
         <section class="tip-amount">
-          <p>Tip Amount<br />/ person</p>
-          <p>val</p>
+          <span>
+            <p>Tip Amount</p>
+            <p>/ person</p>
+          </span>
+          <span class="calculated-values">val</span>
         </section>
         <section class="tip-total">
-          <p>Total<br />/ person</p>
-          <p>val</p>
+          <span>
+            <p>Total</p>
+            <p>/ person</p>
+          </span>
+          <span class="calculated-values">val</span>
         </section>
         <section class="tip-action">
           <button>Reset</button>

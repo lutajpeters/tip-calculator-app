@@ -4,6 +4,7 @@
     --grayish-cyan: hsl(184, 14%, 56%);
     --light-grayish-cyan: hsl(185, 41%, 84%);
     --very-light-grayish-cyan: hsl(189, 41%, 97%);
+    --strong-cyan: hsl(172, 67%, 45%);
     --white: hsl(0, 0%, 100%);
 }
 
@@ -24,7 +25,7 @@ body {
 .main-container {
     min-width: 100%;
     min-height: 100vh;
-    background-color: var(--light-grayish-cyan);
+    background-color: var(--very-light-grayish-cyan);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -33,31 +34,58 @@ body {
 
 /*  */
 
+h1 {
+    margin: 0.3rem;
+}
 
 .card {
-    min-width: 100%;
+    width: 100%;
     padding: 30px;
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
     background-color: var(--white);
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+@media only screen and (min-width: 400px) {
+    .card {
+        max-width: 950px;
+        max-height: 500px;
+        flex-direction: row;
+        gap: 35px;
+        border-radius: 25px;
+    }
+
+    .bill-tip-options > .tip-options {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 .card-bill {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    width: 100%;
+    min-height: 100%;
 }
 
 
 h5 {
     margin: 0.3rem 0 0.3rem 0;
+    color: var(--dark-grayish-cyan);
 }
 
-.bill-input, .party-size-input {
+.bill-input,
+.party-size-input {
     position: relative;
 }
 
-.bill-input > img, .party-size-input > img {
+.bill-input>img,
+.party-size-input>img {
     position: absolute;
     top: 50%;
     margin-left: 1rem;
@@ -65,11 +93,16 @@ h5 {
 }
 
 
-.bill-input > input, .party-size-input > input {
+.bill-input>input,
+.party-size-input>input {
     border: none;
     width: 100%;
     background-color: var(--very-light-grayish-cyan);
     height: 3rem;
+    text-align: end;
+    padding-right: 15px;
+    border-radius: 5px;
+    font-size: 24px;
 }
 
 .bill-tip-options {
@@ -83,7 +116,7 @@ h5 {
     gap: 0.8rem;
 }
 
-.tip-options > p {
+.tip-options>p {
     text-align: center;
     min-height: 2.5rem;
     line-height: 2.5rem;
@@ -94,11 +127,73 @@ h5 {
 
 }
 
+.tip-options>p:last-child {
+    background-color: var(--very-light-grayish-cyan);
+    color: var(--dark-grayish-cyan);
+}
+
 
 .card-tip {
     display: flex;
+    justify-content: space-around;
     flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    min-height: 100%;
+    border-radius: 15px;
+    padding: 15px 20px 15px 20px;
+    background-color: var(--very-dark-cyan);
 }
+
+
+.tip-amount {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.tip-amount span>p,
+.tip-total span>p {
+    margin: 0;
+}
+
+.tip-amount span>p:last-child,
+.tip-total span>p:last-child {
+    color: var(--grayish-cyan);
+}
+
+.tip-amount span>p:first-child,
+.tip-total span>p:first-child {
+    color: var(--white);
+}
+
+.calculated-values {
+    color: var(--strong-cyan);
+    font-size: 30px;
+}
+
+.tip-total {
+    display: flex;
+    justify-content: space-between;
+}
+
+.tip-action {
+    position: relative;
+    min-height: 8.5rem;
+}
+
+
+.tip-action>button {
+    width: 100%;
+    min-height: 2.5rem;
+    border-radius: 5px;
+    background-color: var(--strong-cyan);
+    color: var(--very-dark-cyan);
+    border-color: var(--strong-cyan);
+    position: absolute;
+    bottom: 0;
+}
+
 
 /*  */
 
