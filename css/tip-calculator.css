@@ -7,12 +7,19 @@
     --white: hsl(0, 0%, 100%);
 }
 
-
-body {
+html {
     box-sizing: border-box;
-    margin: 0;
 }
 
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+}
 
 .main-container {
     min-width: 100%;
@@ -24,7 +31,26 @@ body {
     flex-direction: column;
 }
 
+/*  */
 
+
+.card {
+    min-width: 100%;
+    padding: 30px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    background-color: var(--white);
+}
+
+.card-bill {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-tip {
+    display: flex;
+    flex-direction: column;
+}
 
 /*  */
 
