@@ -34,7 +34,8 @@ const removeLeadingZeros = (inputValue) => {
 
 const preventInvalidInput = (event) => {
   const input = event.key;
-  if (input === "." || input === "-") {
+  const invalid = new RegExp("[^0-9]");
+  if (invalid.test(input)) {
     event.preventDefault();
   }
 };
