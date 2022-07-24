@@ -57,7 +57,11 @@
           </header>
           <div class="party-size-input">
             <img src="/images/icon-person.svg" alt="people" />
-            <input type="number" id="partySize" name="partySize" min="1" max="1000000" placeholder="0" />
+            <input type="number" id="partySize" name="partySize"
+              min="1" max="1000000" placeholder="0"
+              oninput="validatePartySize(event)"
+              onkeydown="preventInvalidInput(event)"
+            />
           </div>
         </section>
       </section>
@@ -74,7 +78,7 @@
             <p>Total</p>
             <p>/ person</p>
           </span>
-          <span id="totalPerPerson" class="calculated-values">val</span>
+          <span id="totalPerPerson" class="calculated-values">$0.00</span>
         </section>
         <section class="tip-action">
           <button>Reset</button>
