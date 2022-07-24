@@ -6,6 +6,7 @@
     --very-light-grayish-cyan: hsl(189, 41%, 97%);
     --strong-cyan: hsl(172, 67%, 45%);
     --white: hsl(0, 0%, 100%);
+    --error-color: hsl(0, 100%, 60%);
 }
 
 html {
@@ -44,6 +45,8 @@ h1 {
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
     background-color: var(--white);
+    font-family: 'Space Mono', monospace;
+    font-weight: 700;
 
     display: flex;
     flex-direction: column;
@@ -84,8 +87,8 @@ h5 {
     position: relative;
 }
 
-.bill-input>img,
-.party-size-input>img {
+.bill-input > img,
+.party-size-input > img {
     position: absolute;
     top: 50%;
     margin-left: 1rem;
@@ -93,8 +96,8 @@ h5 {
 }
 
 
-.bill-input>input,
-.party-size-input>input {
+.bill-input > input,
+.party-size-input > input {
     border: none;
     width: 100%;
     background-color: var(--very-light-grayish-cyan);
@@ -116,20 +119,30 @@ h5 {
     gap: 0.8rem;
 }
 
-.tip-options>p {
+.tip-options > button {
     text-align: center;
     min-height: 2.5rem;
     line-height: 2.5rem;
     margin: 0;
     color: var(--white);
     border-radius: 5px;
+    border: none;
     background-color: var(--very-dark-cyan);
 
 }
 
-.tip-options>p:last-child {
+.tip-options > button:hover {
+    cursor: pointer;
+}
+
+#customTip {
     background-color: var(--very-light-grayish-cyan);
     color: var(--dark-grayish-cyan);
+    text-align: center;
+    outline: none;
+    border: none;
+    font-size: 18px;
+    border-radius: 5px;
 }
 
 
@@ -152,18 +165,18 @@ h5 {
 }
 
 
-.tip-amount span>p,
-.tip-total span>p {
+.tip-amount span > p,
+.tip-total span > p {
     margin: 0;
 }
 
-.tip-amount span>p:last-child,
-.tip-total span>p:last-child {
+.tip-amount span > p:last-child,
+.tip-total span > p:last-child {
     color: var(--grayish-cyan);
 }
 
-.tip-amount span>p:first-child,
-.tip-total span>p:first-child {
+.tip-amount span > p:first-child,
+.tip-total span > p:first-child {
     color: var(--white);
 }
 
@@ -183,7 +196,7 @@ h5 {
 }
 
 
-.tip-action>button {
+.tip-action > button {
     width: 100%;
     min-height: 2.5rem;
     border-radius: 5px;
@@ -192,7 +205,39 @@ h5 {
     border-color: var(--strong-cyan);
     position: absolute;
     bottom: 0;
+
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
 }
+
+/* .tip-action > button:hover {
+    cursor: pointer;
+} */
+
+input[type=number]:focus {
+    border: 1px solid var(--strong-cyan);
+    outline: none;
+}
+
+
+.party-size-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.error {
+    display: none;
+    font-size: x-small;
+    color: var(--error-color);
+}
+
+
+.selected {
+    background-color: var(--strong-cyan) !important;
+}
+
 
 
 /*  */
@@ -201,10 +246,11 @@ h5 {
     font-size: 11px;
     text-align: center;
 
-    position: fixed;
-    bottom: 0;
+    position: relative;
     height: 1.5rem;
     width: 100%;
+    background-color: var(--very-light-grayish-cyan);
+    margin-top: -2rem;
 }
 
 .attribution a {

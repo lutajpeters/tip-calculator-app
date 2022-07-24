@@ -34,7 +34,7 @@
           </header>
           <div class="bill-input">
             <img src="/images/icon-dollar.svg" alt="dollar sign" />
-            <input type="number" id="billAmount" name="billAmount" min="0" max="1000000" placeholder="0.0" />
+            <input type="number" id="billAmount" name="billAmount" min="1" max="1000000" placeholder="0" />
           </div>
         </section>
         <section class="bill-tip-options">
@@ -42,21 +42,22 @@
             <h5>Select Tip %</h5>
           </header>
           <div class="tip-options">
-            <p>5%</p>
-            <p>10%</p>
-            <p>15%</p>
-            <p>25%</p>
-            <p>50%</p>
-            <p>Custom</p>
+            <button id="fivePercent" data-tip-percentage="5">5%</button>
+            <button id="tenPercent" data-tip-percentage="10">10%</button>
+            <button id="fivePercent" data-tip-percentage="15">15%</button>
+            <button id="twentyFivePercent" data-tip-percentage="25">25%</button>
+            <button id="fiftyPercent" data-tip-percentage="50">50%</button>
+            <input type="number" id="customTip" name="customTip" min="0" max="1000000" placeholder="Custom" />
           </div>
         </section>
         <section class="bill-party-size">
-          <header>
+          <header class="party-size-header">
             <h5>Number of People</h5>
+            <h5 class="error" id="errorMessage">Can't be zero</h5>
           </header>
           <div class="party-size-input">
             <img src="/images/icon-person.svg" alt="people" />
-            <input type="number" id="partySize" name="partySize" min="0" max="1000000" placeholder="0.0" />
+            <input type="number" id="partySize" name="partySize" min="1" max="1000000" placeholder="0" />
           </div>
         </section>
       </section>
@@ -66,14 +67,14 @@
             <p>Tip Amount</p>
             <p>/ person</p>
           </span>
-          <span class="calculated-values">val</span>
+          <span id="tipPerPerson" class="calculated-values">$0.00</span>
         </section>
         <section class="tip-total">
           <span>
             <p>Total</p>
             <p>/ person</p>
           </span>
-          <span class="calculated-values">val</span>
+          <span id="totalPerPerson" class="calculated-values">val</span>
         </section>
         <section class="tip-action">
           <button>Reset</button>
@@ -81,7 +82,6 @@
       </section>
     </div>
   </main>
-
 
   <footer class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
