@@ -47,6 +47,14 @@ const validatePartySize = (event) => {
   removeErrorMessage();
 };
 
+validateBillAmount = (event) => {
+  const input = event.key;
+  const invalid = new RegExp("[^0-9.]");
+  if (invalid.test(input)) {
+    event.preventDefault();
+  }
+};
+
 /* Field Validation */
 
 /* Tip Percentage */
