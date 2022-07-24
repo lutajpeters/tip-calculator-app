@@ -34,7 +34,9 @@ const removeLeadingZeros = (inputValue) => {
 
 const preventInvalidInput = (event) => {
   const input = event.key;
-  if (input === "." || input === "-") {
+  const regex = new RegExp("Arrow*");
+  //if (input === "." || input === "-" || input === "e" || input === "E") {
+  if (isNaN(input) && input !== "Backspace" && !regex.test(input)) {
     event.preventDefault();
   }
 };
@@ -44,6 +46,15 @@ const validatePartySize = (event) => {
   if (!isPartySizeValid(inputValue)) return displayErrorMessage();
   removeLeadingZeros(parseInt(inputValue));
   removeErrorMessage();
+  calulateTotalAndTip();
+};
+
+const validateDecimalInput = (event) => {
+  const input = event.key;
+  const valid = new RegExp("Arrow*");
+  if (isNaN(input) && !valid.test(input) && input !== "Backspace") {
+    event.preventDefault();
+  }
 };
 
 /* Field Validation */
@@ -62,21 +73,10 @@ const updateButtonState = (event) => {
   const buttonID = event.target.id;
   let selectedButton = document.getElementById(buttonID);
   selectedButton.classList.add("selected");
+  calulateTotalAndTip();
 };
 
 /* Tip Percentage */
-
-/* RESET */
-
-const resetValues = () => {
-  document.getElementById(BILL_AMOUNT).value = "0";
-  document.getElementById(PARTY_SIZE).value = "0";
-  setTipPerPerson("0.00");
-  setTotalPerPerson("0.00");
-  removePreviousState();
-};
-
-/* RESET */
 
 /* Tip Calculation */
 
@@ -88,6 +88,44 @@ const setTotalPerPerson = (totalPerPerson) => {
   document.getElementById(TOTAL_PER_PERSON).innerText = `$${totalPerPerson}`;
 };
 
+const applyTipPercentage = (billAmount, tipPercentage) => {
+  const tip = tipPercentage || document.getElementById(CUSTOM_TIP).value;
+  if (!billAmount || !tip) return 0;
+  const tipPerPerson = billAmount * (tip / 100);
+  return tipPerPerson;
+};
+
+const calulateTotal = (billAmount, tipPerPerson, partySize) => {
+    if(!billAmount || !tipPerPerson || !partySize) return 0;
+    const total = parseFloat((billAmount / partySize) + tipPerPerson);
+    return total;
+}
+
+const calulateTotalAndTip = () => {
+  const billAmount = parseFloat(document.getElementById(BILL_AMOUNT).value);
+  const partySize = parseInt(document.getElementById(PARTY_SIZE).value);
+  const selectedTipPercentage = parseInt(
+    document.querySelector(".selected")?.dataset.tipPercentage
+  );
+  //
+  const tipAmount = applyTipPercentage(billAmount, selectedTipPercentage);
+  const totalPerPerson = calulateTotal(billAmount, tipAmount, partySize);
+
+  setTipPerPerson(tipAmount.toFixed(2));
+  setTotalPerPerson(totalPerPerson.toFixed(2));
+};
+
 /* Tip Calculation */
 
 //
+/* RESET */
+
+const resetValues = () => {
+  document.getElementById(BILL_AMOUNT).value = "";
+  document.getElementById(PARTY_SIZE).value = "";
+  setTipPerPerson("0.00");
+  setTotalPerPerson("0.00");
+  removePreviousState();
+};
+
+/* RESET */
