@@ -48,4 +48,22 @@ const validatePartySize = (event) => {
 
 /* Field Validation */
 
+/* Tip Percentage */
+
+const removePreviousState = () => {
+  const buttons = document.querySelectorAll(".tip-options > button");
+  buttons.forEach((button) => {
+    button.classList.remove("selected");
+  });
+};
+
+const updateButtonState = (event) => {
+  removePreviousState();
+  const buttonID = event.target.id;
+  let selectedButton = document.getElementById(buttonID);
+  selectedButton.classList.add("selected");
+};
+
+/* Tip Percentage */
+
 //

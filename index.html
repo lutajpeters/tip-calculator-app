@@ -42,11 +42,11 @@
             <h5>Select Tip %</h5>
           </header>
           <div class="tip-options">
-            <button id="fivePercent" data-tip-percentage="5">5%</button>
-            <button id="tenPercent" data-tip-percentage="10">10%</button>
-            <button id="fivePercent" data-tip-percentage="15">15%</button>
-            <button id="twentyFivePercent" data-tip-percentage="25">25%</button>
-            <button id="fiftyPercent" data-tip-percentage="50">50%</button>
+            <button id="fivePercent" data-tip-percentage="5" onclick="updateButtonState(event)">5%</button>
+            <button id="tenPercent" data-tip-percentage="10" onclick="updateButtonState(event)">10%</button>
+            <button id="fifteenPercent" data-tip-percentage="15" onclick="updateButtonState(event)">15%</button>
+            <button id="twentyFivePercent" data-tip-percentage="25" onclick="updateButtonState(event)">25%</button>
+            <button id="fiftyPercent" data-tip-percentage="50" onclick="updateButtonState(event)">50%</button>
             <input type="number" id="customTip" name="customTip" min="0" max="1000000" placeholder="Custom" />
           </div>
         </section>
@@ -57,11 +57,8 @@
           </header>
           <div class="party-size-input">
             <img src="/images/icon-person.svg" alt="people" />
-            <input type="number" id="partySize" name="partySize"
-              min="1" max="1000000" placeholder="0"
-              oninput="validatePartySize(event)"
-              onkeydown="preventInvalidInput(event)"
-            />
+            <input type="number" id="partySize" name="partySize" min="1" max="1000000" placeholder="0"
+              oninput="validatePartySize(event)" onkeydown="preventInvalidInput(event)" />
           </div>
         </section>
       </section>
