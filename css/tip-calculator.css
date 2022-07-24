@@ -131,9 +131,18 @@ h5 {
 
 }
 
-.tip-options>p:last-child {
+.tip-options > button:hover {
+    cursor: pointer;
+}
+
+#customTip {
     background-color: var(--very-light-grayish-cyan);
     color: var(--dark-grayish-cyan);
+    text-align: center;
+    outline: none;
+    border: none;
+    font-size: 18px;
+    border-radius: 5px;
 }
 
 
@@ -142,7 +151,7 @@ h5 {
     justify-content: space-around;
     flex-direction: column;
     gap: 15px;
-    min-width: 100%;
+    width: 100%;
     min-height: 100%;
     border-radius: 15px;
     padding: 15px 20px 15px 20px;
@@ -196,7 +205,39 @@ h5 {
     border-color: var(--strong-cyan);
     position: absolute;
     bottom: 0;
+
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
 }
+
+/* .tip-action > button:hover {
+    cursor: pointer;
+} */
+
+input[type=number]:focus {
+    border: 1px solid var(--strong-cyan);
+    outline: none;
+}
+
+
+.party-size-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.error {
+    display: none;
+    font-size: x-small;
+    color: var(--error-color);
+}
+
+
+.selected {
+    background-color: var(--strong-cyan) !important;
+}
+
 
 
 /*  */
@@ -205,10 +246,11 @@ h5 {
     font-size: 11px;
     text-align: center;
 
-    position: fixed;
-    bottom: 0;
+    position: relative;
     height: 1.5rem;
     width: 100%;
+    background-color: var(--very-light-grayish-cyan);
+    margin-top: -2rem;
 }
 
 .attribution a {
