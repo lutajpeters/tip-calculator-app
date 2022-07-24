@@ -66,4 +66,28 @@ const updateButtonState = (event) => {
 
 /* Tip Percentage */
 
+/* RESET */
+
+const resetValues = () => {
+  document.getElementById(BILL_AMOUNT).value = "0";
+  document.getElementById(PARTY_SIZE).value = "0";
+  setTipPerPerson("0.00");
+  setTotalPerPerson("0.00");
+  removePreviousState();
+};
+
+/* RESET */
+
+/* Tip Calculation */
+
+const setTipPerPerson = (totalTipPerPerson) => {
+  document.getElementById(TIP_PER_PERSON).innerText = `$${totalTipPerPerson}`;
+};
+
+const setTotalPerPerson = (totalPerPerson) => {
+  document.getElementById(TOTAL_PER_PERSON).innerText = `$${totalPerPerson}`;
+};
+
+/* Tip Calculation */
+
 //
