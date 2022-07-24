@@ -34,7 +34,6 @@ const removeLeadingZeros = (inputValue) => {
 
 const preventInvalidInput = (event) => {
   const input = event.key;
-  console.log("key: ", input);
   const regex = new RegExp("Arrow*");
   //if (input === "." || input === "-" || input === "e" || input === "E") {
   if (isNaN(input) && input !== "Backspace" && !regex.test(input)) {
@@ -50,10 +49,10 @@ const validatePartySize = (event) => {
   calulateTotalAndTip();
 };
 
-validateBillAmount = (event) => {
+const validateDecimalInput = (event) => {
   const input = event.key;
-  const invalid = new RegExp("[]");
-  if (invalid.test(input)) {
+  const valid = new RegExp("Arrow*");
+  if (isNaN(input) && !valid.test(input) && input !== "Backspace") {
     event.preventDefault();
   }
 };
@@ -90,12 +89,17 @@ const setTotalPerPerson = (totalPerPerson) => {
 };
 
 const applyTipPercentage = (billAmount, tipPercentage) => {
-  console.log("tips...");
-  if (!billAmount || !tipPercentage) return "0.00";
-  const tipPerPerson = billAmount * (tipPercentage / 100);
-  console.log("tipPerPerson...: ", tipPerPerson);
+  const tip = tipPercentage || document.getElementById(CUSTOM_TIP).value;
+  if (!billAmount || !tip) return 0;
+  const tipPerPerson = billAmount * (tip / 100);
   return tipPerPerson;
 };
+
+const calulateTotal = (billAmount, tipPerPerson, partySize) => {
+    if(!billAmount || !tipPerPerson || !partySize) return 0;
+    const total = parseFloat((billAmount / partySize) + tipPerPerson);
+    return total;
+}
 
 const calulateTotalAndTip = () => {
   const billAmount = parseFloat(document.getElementById(BILL_AMOUNT).value);
@@ -103,14 +107,12 @@ const calulateTotalAndTip = () => {
   const selectedTipPercentage = parseInt(
     document.querySelector(".selected")?.dataset.tipPercentage
   );
-
-  console.log("billAmount: ", billAmount);
-  console.log("partySize: ", partySize);
-  console.log("selectedTipPercentage: ", selectedTipPercentage);
   //
   const tipAmount = applyTipPercentage(billAmount, selectedTipPercentage);
+  const totalPerPerson = calulateTotal(billAmount, tipAmount, partySize);
 
-  setTipPerPerson(tipAmount);
+  setTipPerPerson(tipAmount.toFixed(2));
+  setTotalPerPerson(totalPerPerson.toFixed(2));
 };
 
 /* Tip Calculation */
