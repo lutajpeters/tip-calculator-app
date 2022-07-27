@@ -34,9 +34,8 @@ const removeLeadingZeros = (inputValue) => {
 
 const preventInvalidInput = (event) => {
   const input = event.key;
-  const regex = new RegExp("Arrow*");
-  //if (input === "." || input === "-" || input === "e" || input === "E") {
-  if (isNaN(input) && input !== "Backspace" && !regex.test(input)) {
+  const regex = new RegExp("[e+-.]", "i");
+  if (regex.test(input)) {
     event.preventDefault();
   }
 };
@@ -51,8 +50,8 @@ const validatePartySize = (event) => {
 
 const validateDecimalInput = (event) => {
   const input = event.key;
-  const valid = new RegExp("Arrow*");
-  if (isNaN(input) && !valid.test(input) && input !== "Backspace") {
+  const invalid = new RegExp("[e+-]", "i");
+  if (invalid.test(input)) {
     event.preventDefault();
   }
 };
@@ -70,11 +69,17 @@ const removePreviousState = () => {
 
 const updateButtonState = (event) => {
   removePreviousState();
+  document.getElementById(CUSTOM_TIP).value = "";
   const buttonID = event.target.id;
   let selectedButton = document.getElementById(buttonID);
   selectedButton.classList.add("selected");
   calulateTotalAndTip();
 };
+
+
+const handleFocus = () => {
+  removePreviousState();
+}
 
 /* Tip Percentage */
 
