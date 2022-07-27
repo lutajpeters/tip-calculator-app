@@ -49,7 +49,7 @@
             <button id="twentyFivePercent" data-tip-percentage="25" onclick="updateButtonState(event)">25%</button>
             <button id="fiftyPercent" data-tip-percentage="50" onclick="updateButtonState(event)">50%</button>
             <input type="number" id="customTip" name="customTip" min="0" max="1000000" placeholder="Custom"
-              onkeydown="validateDecimalInput(event)" oninput="calulateTotalAndTip()" />
+              onkeydown="validateDecimalInput(event)" oninput="calulateTotalAndTip()" onfocus="handleFocus()" />
           </div>
         </section>
         <section class="bill-party-size">
