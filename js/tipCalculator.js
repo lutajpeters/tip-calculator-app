@@ -76,6 +76,7 @@ const updateButtonState = (event) => {
   calulateTotalAndTip();
 };
 
+
 const handleFocus = () => {
   removePreviousState();
 }
