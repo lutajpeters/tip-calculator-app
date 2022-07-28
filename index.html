@@ -36,7 +36,7 @@
           <div class="bill-input">
             <img src="./icon-dollar.svg" alt="dollar sign" />
             <input type="number" id="billAmount" name="billAmount" min="1" max="1000000" placeholder="0"
-              onkeydown="validateDecimalInput(event)" oninput="calulateTotalAndTip()" />
+              oninput="calulateTotalAndTip()" />
           </div>
         </section>
         <section class="bill-tip-options">
@@ -50,7 +50,7 @@
             <button id="twentyFivePercent" data-tip-percentage="25" onclick="updateButtonState(event)">25%</button>
             <button id="fiftyPercent" data-tip-percentage="50" onclick="updateButtonState(event)">50%</button>
             <input type="number" id="customTip" name="customTip" min="0" max="1000000" placeholder="Custom"
-              onkeydown="validateDecimalInput(event)" oninput="calulateTotalAndTip()" onfocus="handleFocus()" />
+              oninput="calulateTotalAndTip()" onfocus="handleFocus()" />
           </div>
         </section>
         <section class="bill-party-size">
@@ -61,7 +61,7 @@
           <div class="party-size-input">
             <img src="./icon-person.svg" alt="people" />
             <input type="number" id="partySize" name="partySize" min="1" max="1000000" placeholder="0"
-              oninput="validatePartySize(event)" onkeydown="preventInvalidInput(event)" />
+              oninput="validatePartySize(event)" />
           </div>
         </section>
       </section>
