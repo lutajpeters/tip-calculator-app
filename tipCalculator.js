@@ -8,6 +8,7 @@ const TIP_PER_PERSON = "tipPerPerson";
 const TOTAL_PER_PERSON = "totalPerPerson";
 
 const tipButtons = document.querySelectorAll(".tip-options > button");
+const resetButton = document.getElementById("resetButton");
 const partySizeElement = document.getElementById(PARTY_SIZE);
 const billAmountElement = document.getElementById(BILL_AMOUNT);
 const customTipElement = document.getElementById(CUSTOM_TIP);
@@ -89,6 +90,16 @@ const handleFocus = () => {
 
 /* Tip Calculation */
 
+const enableReset = () => {
+  resetButton.classList.add("tip-action-button-active");
+  resetButton.removeAttribute("disabled")
+}
+
+const disableReset = () => {
+  resetButton.classList.remove("tip-action-button-active");
+  resetButton.setAttribute("disabled", true);
+}
+
 const setTipPerPerson = (totalTipPerPerson) => {
   tipPerPersonElement.innerText = `$${totalTipPerPerson}`;
 };
@@ -111,6 +122,7 @@ const calulateTotal = (billAmount, tipPerPerson, partySize) => {
 };
 
 const calulateTotalAndTip = () => {
+  enableReset();
   const billAmount = parseFloat(billAmountElement.value);
   const partySize = parseInt(partySizeElement.value);
   const selectedTipPercentage = parseInt(
@@ -136,6 +148,7 @@ const resetValues = () => {
   setTipPerPerson("0.00");
   setTotalPerPerson("0.00");
   removePreviousState();
+  disableReset();
 };
 
 /* RESET */
