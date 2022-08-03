@@ -242,6 +242,16 @@ input[type=number]:focus {
 }
 
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* For Firefox */
+[type="number"] {
+  -moz-appearance: textfield;
+}
 
 /*  */
 
