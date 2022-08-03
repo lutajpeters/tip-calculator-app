@@ -16,8 +16,8 @@
   <!-- fonts -->
 
   <link rel="stylesheet" href="./tip-calculator.css">
-  <!-- <script type="text/javascript" src="./tipCalculator.js" defer></script> -->
-  <script type="text/javascript" src="bundle.js" defer></script>
+  <script src="./tipCalculator.js" defer></script>
+  <!-- <script src="bundle.js" defer></script> -->
 
   <title>Frontend Mentor | Tip calculator app</title>
 
@@ -28,7 +28,7 @@
     <h1>SPLI</h1>
     <h1>TTER</h1>
     <div class="card">
-      <section class="card-bill">
+      <div class="card-bill">
         <section class="bill-value">
           <header class="bill-header">
             <h5>Bill</h5>
@@ -64,26 +64,26 @@
               oninput="validatePartySize(event)" onkeydown="preventInvalidInput(event)" />
           </div>
         </section>
-      </section>
-      <section class="card-tip">
-        <section class="tip-amount">
-          <span>
+      </div>
+      <div class="card-tip">
+        <div class="tip-amount">
+          <div>
             <p>Tip Amount</p>
             <p>/ person</p>
-          </span>
+          </div>
           <span id="tipPerPerson" class="calculated-values">$0.00</span>
-        </section>
-        <section class="tip-total">
-          <span>
+        </div>
+        <div class="tip-total">
+          <div>
             <p>Total</p>
             <p>/ person</p>
-          </span>
+          </div>
           <span id="totalPerPerson" class="calculated-values">$0.00</span>
-        </section>
-        <section class="tip-action">
+        </div>
+        <div class="tip-action">
           <button onclick="resetValues()">Reset</button>
-        </section>
-      </section>
+        </div>
+      </div>
     </div>
   </main>
 
