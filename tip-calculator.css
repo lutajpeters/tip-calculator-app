@@ -165,18 +165,18 @@ h5 {
 }
 
 
-.tip-amount span > p,
-.tip-total span > p {
+.tip-amount div > p,
+.tip-total div > p {
     margin: 0;
 }
 
-.tip-amount span > p:last-child,
-.tip-total span > p:last-child {
+.tip-amount div > p:last-child,
+.tip-total div > p:last-child {
     color: var(--grayish-cyan);
 }
 
-.tip-amount span > p:first-child,
-.tip-total span > p:first-child {
+.tip-amount div > p:first-child,
+.tip-total div > p:first-child {
     color: var(--white);
 }
 
